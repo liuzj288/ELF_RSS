@@ -11,11 +11,9 @@ from nonebot.matcher import Matcher
 from nonebot.params import ArgPlainText, CommandArg
 from nonebot.permission import SUPERUSER
 from nonebot.rule import to_me
-from nonebot_plugin_guild_patch import GUILD_ADMIN, GUILD_OWNER, GuildMessageEvent
 
 from .. import my_trigger as tr
 from ..config import DATA_PATH
-from ..permission import GUILD_SUPERUSER
 from ..rss_class import Rss
 from ..utils import regex_validate
 
@@ -26,9 +24,6 @@ RSS_CHANGE = on_command(
     priority=5,
     permission=GROUP_ADMIN
     | GROUP_OWNER
-    | GUILD_ADMIN
-    | GUILD_OWNER
-    | GUILD_SUPERUSER
     | SUPERUSER,
 )
 
@@ -77,7 +72,6 @@ attribute_dict = {
     "url": "url",
     "qq": "user_id",
     "qun": "group_id",
-    "channel": "guild_channel_id",
     "time": "time",
     "proxy": "img_proxy",
     "tl": "translation",
